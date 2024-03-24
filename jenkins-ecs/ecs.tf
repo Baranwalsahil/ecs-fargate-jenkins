@@ -84,6 +84,7 @@ resource "aws_ecs_service" "jenkins" {
   # The Jenkins controller task definition
   task_definition = aws_ecs_task_definition.jenkins_td.arn
   launch_type     = "FARGATE"
+  enable_execute_command = true
 
   desired_count                      = 1
   deployment_minimum_healthy_percent = 0

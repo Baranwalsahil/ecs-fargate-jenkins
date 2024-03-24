@@ -48,7 +48,13 @@ resource "aws_iam_policy" "jenkins_policy" {
           "iam:PassRole",
           "elasticfilesystem:DescribeMountTargets",
           "ec2:DescribeAvailabilityZones",
-          "ecs:TagResource"
+          "ecs:TagResource",
+          "ecs:ExecuteCommand",
+          "ecs:DescribeTasks",
+          "ssmmessages:CreateControlChannel",
+          "ssmmessages:CreateDataChannel",
+          "ssmmessages:OpenControlChannel",
+          "ssmmessages:OpenDataChannel"
         ],
         "Resource" : "*"
       }
