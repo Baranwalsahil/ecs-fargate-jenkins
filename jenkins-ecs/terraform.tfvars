@@ -1,0 +1,6 @@
+aws_region              = "us-east-1"
+prefix                  = "jenkins-serverless"
+jenkins_controller_port = "8080"
+jenkins_agent_port      = "50000"
+jenkins_controller_cpu  = "4096"
+jenkins_controller_mem  = "8192"

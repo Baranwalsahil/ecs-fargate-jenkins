@@ -1,0 +1,38 @@
+jenkins:
+  systemMessage: Jenkins configured automatically
+  numExecutors: 0
+  agentProtocols:
+    - JNLP4-connect
+  slaveAgentPort: ${jenkins_agent_port}
+  authorizationStrategy:
+    loggedInUsersCanDoAnything:
+      allowAnonymousRead: false
+  remotingSecurity:
+    enabled: true
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+        - id: JENKINS_USER
+          password: JENKINS_PASS
+  clouds:
+    - ecs:
+        credentialsId: false
+        allowedOverrides: "inheritFrom,label"
+        cluster: ${ecs_agent_cluster}
+        name: jenkins-agent
+        regionName: ${region}
+        jenkinsUrl: http://${jenkins_dns}:${jenkins_controller_port}
+        tunnel: ${jenkins_dns}:${jenkins_agent_port}
+        templates:
+          - assignPublicIp: true
+            cpu: 512
+            memoryReservation: 1024
+            image: ${jenkins_agent_image}
+            label: jenkins-agent
+            launchType: FARGATE
+            networkMode: awsvpc
+            securityGroups: ${jenkins_agent_sg}
+            subnets: ${subnets}
+            templateName: jenkins-agent
+            executionRole: ${ecs_execution_role}
