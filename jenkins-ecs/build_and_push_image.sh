@@ -8,10 +8,7 @@ REPOSITORY_URL=$5
 
 echo "--- JENKINS $IMAGE_TYPE ---"
 
-# Fetch the Jenkins controller username and password from AWS Secrets Manager
-# SECRET_JSON=$(aws secretsmanager get-secret-value --region $AWS_REGION --secret-id $SECRET_NAME | jq -r '.SecretString | fromjson')
 
-# Extract the Jenkins controller username and password
 JENKINS_CONTROLLER_USER="admin"
 JENKINS_CONTROLLER_PASS="admin"
 
