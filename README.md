@@ -13,8 +13,9 @@ For running this project on your local:
     g. VPC<br>
 3. Clone the repository - git clone https://github.com/Baranwalsahil/ecs-fargate-jenkins.git
 4. Now change the directory to jenkins-ecs
-5. Run command terraform plan to check all the services which is going to be made.
-6. Run command terraform apply --auto-approve
+5. Run command terraform init
+6. Run command terraform plan to check all the services which is going to be made.
+7. Run command terraform apply --auto-approve
 Within 5 to 10 mins all the resources will get formed. Below are the screenshot related to it:
 ECS - 
 ![ecs](https://github.com/Baranwalsahil/ecs-fargate-jenkins/assets/48612626/6f47f359-7068-4710-9af0-b521af497240)
