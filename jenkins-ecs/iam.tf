@@ -3,27 +3,6 @@ data "aws_iam_policy" "aws_ecs_task_execution_policy" {
   arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
-# IAM policy that helps user to exec into the containers in ecs
-resource "aws_iam_policy" "ecs_exec" {
-  name = "exec-policy"
-  policy = jsonencode({
-    "Version" : "2012-10-17",
-    "Statement" : [
-      {
-        "Effect" : "Allow",
-        "Action" : [
-          "ecs:ExecuteCommand",
-          "ecs:DescribeTasks"
-        ],
-        "Resource" : [
-          "arn:aws:ecs:region:aws-account-id:task/cluster-name/*",
-          "arn:aws:ecs:region:aws-account-id:cluster/*"
-        ]
-      }
-    ]
-  })
-}
-
 # IAM policy that providers Jenkins with the necessary permissions
 resource "aws_iam_policy" "jenkins_policy" {
   name = "jenkins-policy"
