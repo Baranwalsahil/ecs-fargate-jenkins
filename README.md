@@ -40,6 +40,11 @@ When build gets successful in jenkins then ecs agent container also gets deleted
 ![jenkins_success](https://github.com/Baranwalsahil/ecs-fargate-jenkins/assets/48612626/5edc0d5c-3d7d-4fd0-86f6-215f1675adfb)
 ![ecs_agents_success](https://github.com/Baranwalsahil/ecs-fargate-jenkins/assets/48612626/5c09a25b-9a31-4627-9a0c-ae9dcb9c035d)
 
+We can also exec into the jenkins controller by running below command - 
+aws ecs execute-command --cluster jenkins-serverless-controller --task arn:aws:ecs:us-east-1:130536001854:task/jenkins-serverless-controller/27e9d765e17b4bf99d464dc343f33d50  --container jenkins-serverless --interactive --command "/bin/sh"
+![image](https://github.com/Baranwalsahil/ecs-fargate-jenkins/assets/48612626/d952b2fd-1939-402a-843c-a8701a5a6dd4)
+
+
 
 
 
